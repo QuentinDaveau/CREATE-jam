@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class JumpButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool isEnabled = false;
 
-    // Update is called once per frame
-    void Update()
+    public void SetButtonState(bool enable)
     {
-        
+        isEnabled = enable;
+        Debug.Log(isEnabled);
     }
 }

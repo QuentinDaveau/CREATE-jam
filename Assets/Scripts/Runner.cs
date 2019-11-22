@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class Runner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void Jump() {  Debug.Log("Jump !");}
+    public void StartRun(float duration) { Debug.Log("Starting run for " + duration + " seconds !");}
 }
