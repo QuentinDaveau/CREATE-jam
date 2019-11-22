@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float execTime = 5f;
+    public void Enable() { Debug.Log("Module "+ gameObject.name + " enabled !");}
+    public void Disable() { Debug.Log("Module "+ gameObject.name + " disabled !");}
 }
