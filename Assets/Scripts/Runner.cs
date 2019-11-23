@@ -36,7 +36,6 @@ public class Runner : MonoBehaviour
         timer = duration;
         stepTimer = duration / steps;
         tempTimer = timer - stepTimer;
-        Debug.Log(stepTimer);
     }
 
     private void Timer()
@@ -46,39 +45,12 @@ public class Runner : MonoBehaviour
         if (timer <= tempTimer)
         {
             tempTimer -= stepTimer;
-            Debug.Log(tempTimer);
             Run();
         }
     }
 
     private void Run()
     {
-        runner.transform.position = new Vector3(runner.transform.position.x + stepDistance, 0f, 0f);
+        runner.transform.position = new Vector3(runner.transform.position.x + stepDistance, runner.transform.position.y, runner.transform.position.z);
     }
-
-    /*public void StartRun(float duration)
-    {
-        if (duration == 0f) return;
-        runner.transform.position = startPosition;
-        Debug.Log("Starting run for " + duration + " seconds !");
-        distance = Vector3.Distance(runner.transform.position, wall.transform.position);
-        speed = distance / duration;
-        return;
-    }
-
-    private void Run()
-    {
-        if (distance == 0f)
-        {
-            death = true;
-            Debug.Log("DEAD GUY");
-            runner.transform.Translate(0f, 0f, 0f);
-        }
-        else {
-            runner.transform.Translate(Vector3.right * speed * Time.deltaTime);
-            distance = Vector3.Distance(runner.transform.position, wall.transform.position); ;
-        }
-        Debug.LogWarning(distance);
-        return;
-    }*/
 }
