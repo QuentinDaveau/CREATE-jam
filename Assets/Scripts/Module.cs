@@ -16,7 +16,7 @@ public abstract class Module : MonoBehaviour
 
     public virtual void Enable() 
     { 
-        animationPlayer.Play("Enabling");
+        StartCoroutine(SpawnDelay());
     }
 
     public void Disable() 
@@ -69,5 +69,11 @@ public abstract class Module : MonoBehaviour
     public void Activated()
     {
         FindObjectOfType<GameDirector>().ModuleActivated(this);
+    }
+
+    private IEnumerator SpawnDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, .5f));
+        animationPlayer.Play("Enabling");
     }
 }

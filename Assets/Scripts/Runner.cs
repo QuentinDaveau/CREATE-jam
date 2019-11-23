@@ -83,5 +83,6 @@ public class Runner : MonoBehaviour
     private void Death()
     {
         gameDirector.GameOver();
+        run = false;
     }
 }

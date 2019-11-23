@@ -21,10 +21,11 @@ public class GameDirector : MonoBehaviour
     void Start()
     {
         moduleNamesOrder = new List<string>(){
-            //"TestModule1",
-            //"TestModule2"
-            // "WindUp",
-            // "Matemathic"
+            "GreenButton",
+            "LeverModule",
+            "Matemathic",
+            "WindUp",
+            "ClickMe",
             "ShortCut"
         };
 
@@ -80,14 +81,14 @@ public class GameDirector : MonoBehaviour
         {
             if(!(i < moduleList.Count)) break;
 
-            Debug.Log(i);
+            // Debug.Log(i);
             enabledModuleList.Add(moduleList[i]);
             activatedModuleList.Add(moduleList[i]);
         }
 
         foreach(Module module in enabledModuleList)
         {
-            Debug.Log(enabledModuleList.Count);
+            // Debug.Log(enabledModuleList.Count);
             module.Enable();
             tempRunDuration += module.execTime;
         }
@@ -97,10 +98,10 @@ public class GameDirector : MonoBehaviour
 
     private void DestroyTable()
     {
-        Debug.Log(enabledModuleList.Count);
+        // Debug.Log(enabledModuleList.Count);
         foreach(Module module in enabledModuleList)
         {
-            Debug.Log(module);
+            // Debug.Log(module);
             module.Disable();
         }
         enabledModuleList.Clear();

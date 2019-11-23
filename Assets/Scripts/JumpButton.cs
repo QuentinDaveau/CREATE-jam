@@ -16,7 +16,7 @@ public class JumpButton : MonoBehaviour
     public void SetButtonState(bool enable)
     {
         isEnabled = enable;
-        Debug.Log(isEnabled);
+        // Debug.Log(isEnabled);
 
         if (isEnabled)
         {

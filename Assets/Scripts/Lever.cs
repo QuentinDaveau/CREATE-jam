@@ -64,7 +64,7 @@ public class Lever : Module
             baseTransform.localRotation = Quaternion.Inverse(transform.localRotation);
             baseTransform.position = new Vector3(startPosition.x, startPosition.y + 1, startPosition.z);
 
-            Debug.Log(transform.localRotation.eulerAngles.x);
+            // Debug.Log(transform.localRotation.eulerAngles.x);
         }
     }
 }

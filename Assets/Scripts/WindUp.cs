@@ -58,11 +58,9 @@ public class WindUp : Module
         {
             Vector2 hitPointXY = new Vector2((hit.point - transform.position).x, (hit.point - transform.position).z);
 
-            Debug.Log(hitPointXY+"   "+new Vector2(Mathf.Cos(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f), Mathf.Sin(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f)));
+            // Debug.Log(hitPointXY+"   "+new Vector2(Mathf.Cos(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f), Mathf.Sin(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f)));
 
             float currentAngle = Vector2.SignedAngle(new Vector2(Mathf.Cos(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f), -Mathf.Sin(((transform.localRotation.eulerAngles.y) * Mathf.PI) / 180f)), hitPointXY);
-
-            print(currentAngle);
 
             if(currentAngle < 0)
             {

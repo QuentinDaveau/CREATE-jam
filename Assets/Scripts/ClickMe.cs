@@ -31,6 +31,7 @@ public class ClickMe : Module
     public void BlinkFinished()
     {
         clickMe = false;
+        waitForBlink = StartCoroutine(WaitBetweenBlink());
     }
 
     public override void PointerClick()

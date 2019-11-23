@@ -92,6 +92,8 @@ public class ShortCut : Module
             keyPressed[3] = false;
         }
 
+        // Debug.Log(keyPressed[0]+"   "+keyPressed[1]+"   "+keyPressed[2]+"   "+keyPressed[3]);
+
         bool allGood = true;
         foreach(bool value in keyPressed)
         {
