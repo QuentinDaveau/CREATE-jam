@@ -8,8 +8,16 @@ public class GameDirector : MonoBehaviour
 {
     [SerializeField]
     private int difficulty = 0;
+
     [SerializeField]
     private float baseDuration = 5f;
+
+    [SerializeField]
+    private MeshRenderer startText;
+
+    [SerializeField]
+    private MeshRenderer gameOverText;
+
     private List<string> moduleNamesOrder;
     private List<Module> moduleList = new List<Module>();
     private List<Module> enabledModuleList = new List<Module>();
@@ -17,6 +25,7 @@ public class GameDirector : MonoBehaviour
     private JumpButton jumpButton;
     private Runner runner;
     private float runDuration = 5f;
+    private bool gameStarted = false;
 
     void Start()
     {
@@ -37,13 +46,27 @@ public class GameDirector : MonoBehaviour
         jumpButton = FindObjectOfType<JumpButton>();
         runner = FindObjectOfType<Runner>();
 
-        runDuration = GenerateTable();
-        runner.StartRun(runDuration);
+        gameOverText.enabled = false;
+        runner.SetRunnerVisibility(false);
         EnableJumpButton();
     }
 
     public void JumpButtonClicked()
     {
+        Debug.Log("click");
+        if(!gameStarted)
+        {
+            startText.enabled = false;
+            gameOverText.enabled = false;
+            runDuration = GenerateTable();
+            runner.SetRunnerVisibility(true);
+            runner.StartRun(runDuration);
+            DisableJumpButton();
+            EnableJumpButton();
+            gameStarted = true;
+            return;
+        }
+
         DestroyTable();
         runner.Jump();
     }
@@ -110,7 +133,13 @@ public class GameDirector : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        DestroyTable();
+        DisableJumpButton();
+        EnableJumpButton();
+        runner.SetRunnerVisibility(false);
+        gameOverText.enabled = true;
+        gameStarted = false;
+        difficulty = 0;
     }
 
 

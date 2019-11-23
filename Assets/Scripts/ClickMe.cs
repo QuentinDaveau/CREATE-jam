@@ -36,9 +36,11 @@ public class ClickMe : Module
 
     public override void PointerClick()
     {
-        animationPlayer.Play("ClickPress");
+        animationPlayer.Play("ClickDisable");
         if(pressed) return;
         if (!clickMe) return;
+
+        animationPlayer.Play("ClickPress");
 
         StopAllCoroutines();
         Activated();

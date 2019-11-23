@@ -9,6 +9,15 @@ public class Runner : MonoBehaviour
     private GameObject runner;
 
     [SerializeField]
+    private MeshRenderer runnerModel1;
+
+    [SerializeField]
+    private MeshRenderer runnerModel2;
+
+    [SerializeField]
+    private MeshRenderer wallMesh;
+
+    [SerializeField]
     private GameObject wall;
 
     [SerializeField]
@@ -53,6 +62,13 @@ public class Runner : MonoBehaviour
         timer = duration;
         stepTimer = duration / steps;
         tempTimer = timer - stepTimer;
+    }
+
+    public void SetRunnerVisibility(bool visibility)
+    {
+        runnerModel1.enabled = visibility;
+        runnerModel2.enabled = visibility;
+        wallMesh.enabled = visibility;
     }
 
     public void JumpFinished()

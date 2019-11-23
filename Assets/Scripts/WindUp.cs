@@ -8,9 +8,6 @@ public class WindUp : Module
     private Camera mainCamera;
 
     [SerializeField]
-    private float maxValue = 1;
-
-    [SerializeField]
     private Transform baseTransform;
 
     [SerializeField]
