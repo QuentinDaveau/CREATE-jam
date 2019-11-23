@@ -15,11 +15,6 @@ public class TestGameDirector : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            FindObjectOfType<GameDirector>().JumpButtonClicked();
-        }
-
-        if(Input.GetButtonDown("Fire1"))
-        {
             FindObjectOfType<GameDirector>().RunnerJumped();
         }
     }
