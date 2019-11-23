@@ -13,6 +13,7 @@ public class GameDirector : MonoBehaviour
     private List<string> moduleNamesOrder;
     private List<Module> moduleList = new List<Module>();
     private List<Module> enabledModuleList = new List<Module>();
+    private List<Module> activatedModuleList = new List<Module>();
     private JumpButton jumpButton;
     private Runner runner;
     private float runDuration = 5f;
@@ -40,7 +41,6 @@ public class GameDirector : MonoBehaviour
     public void JumpButtonClicked()
     {
         DestroyTable();
-        DisableJumpButton();
         runner.Jump();
     }
 
@@ -48,14 +48,15 @@ public class GameDirector : MonoBehaviour
     {
         difficulty += 1;
         runDuration = GenerateTable();
+        DisableJumpButton();
         runner.StartRun(runDuration);
     }
 
     public void ModuleActivated(Module module)
     {
-        enabledModuleList.Remove(module);
+        activatedModuleList.Remove(module);
 
-        if (enabledModuleList.Count == 0) EnableJumpButton();
+        if (activatedModuleList.Count == 0) EnableJumpButton();
     }
 
     private void EnableJumpButton()
@@ -78,10 +79,12 @@ public class GameDirector : MonoBehaviour
 
             Debug.Log(i);
             enabledModuleList.Add(moduleList[i]);
+            activatedModuleList.Add(moduleList[i]);
         }
 
         foreach(Module module in enabledModuleList)
         {
+            Debug.Log(enabledModuleList.Count);
             module.Enable();
             tempRunDuration += module.execTime;
         }
@@ -91,11 +94,14 @@ public class GameDirector : MonoBehaviour
 
     private void DestroyTable()
     {
+        Debug.Log(enabledModuleList.Count);
         foreach(Module module in enabledModuleList)
         {
+            Debug.Log(module);
             module.Disable();
         }
         enabledModuleList.Clear();
+        activatedModuleList.Clear();
     }
 
 
