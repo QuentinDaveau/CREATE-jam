@@ -14,6 +14,9 @@ public class Runner : MonoBehaviour
     [SerializeField]
     private GameDirector gameDirector;
 
+    [SerializeField]
+    private WallManager wallManager;
+
     private float timer;
     private float stepTimer;
     private float tempTimer;
@@ -21,27 +24,40 @@ public class Runner : MonoBehaviour
     private float stepDistance;
     private int steps = 10;
     private Vector3 initRunner;
+    private bool run;
 
     void Start()
     {
-        initRunner = runner.transform.position;
-        totalDistance = Vector3.Distance(runner.transform.position, wall.transform.position);
+        initRunner = runner.transform.localPosition;
+        totalDistance = Vector3.Distance(runner.transform.localPosition, wall.transform.localPosition);
         stepDistance = totalDistance / steps;
     }
 
     void Update()
     {
+        if(!run) return;
         Timer();
     }
 
-    public void Jump() { Debug.Log("Jump !"); }
+    public void Jump() 
+    {
+        run = false;
+        wallManager.Jump();
+    }
+
     public void StartRun(float duration)
     {
+        run = true;
         Debug.Log("Starting run for " + duration + " seconds !");
-        runner.transform.position = initRunner;
+        runner.transform.localPosition = initRunner;
         timer = duration;
         stepTimer = duration / steps;
         tempTimer = timer - stepTimer;
+    }
+
+    public void JumpFinished()
+    {
+        gameDirector.RunnerJumped();
     }
 
     private void Timer()
@@ -61,7 +77,7 @@ public class Runner : MonoBehaviour
 
     private void Run()
     {
-        runner.transform.position = new Vector3(runner.transform.position.x + stepDistance, runner.transform.position.y, runner.transform.position.z);
+        runner.transform.localPosition = new Vector3(runner.transform.localPosition.x - stepDistance, runner.transform.localPosition.y, runner.transform.localPosition.z);
     }
 
     private void Death()
