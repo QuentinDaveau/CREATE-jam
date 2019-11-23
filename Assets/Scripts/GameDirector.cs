@@ -21,8 +21,9 @@ public class GameDirector : MonoBehaviour
     void Start()
     {
         moduleNamesOrder = new List<string>(){
-            "TestModule1",
-            "TestModule2"
+            //"TestModule1",
+            //"TestModule2"
+            "Button1"
         };
 
         foreach(string moduleName in moduleNamesOrder)
