@@ -104,6 +104,11 @@ public class GameDirector : MonoBehaviour
         activatedModuleList.Clear();
     }
 
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+    }
+
 
 
 }
