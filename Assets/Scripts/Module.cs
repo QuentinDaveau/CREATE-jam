@@ -6,7 +6,7 @@ public abstract class Module : MonoBehaviour
 {
     public float execTime = 5f;
 
-    private Animation animationPlayer;
+    protected Animation animationPlayer;
 
     void Start()
     {
