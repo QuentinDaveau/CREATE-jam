@@ -23,6 +23,7 @@ public class GameDirector : MonoBehaviour
         moduleNamesOrder = new List<string>(){
             //"TestModule1",
             //"TestModule2"
+            "Simon",
             "Button1",
             "Matemathic"
         };

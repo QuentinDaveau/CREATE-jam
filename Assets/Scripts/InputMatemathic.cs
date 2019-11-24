@@ -16,7 +16,6 @@ public class InputMatemathic : Module
     {
         SetOperation();
         SetEmptyField();
-        inputMatemathic.interactable = true;
         base.Enable();
     }
 
@@ -49,11 +48,16 @@ public class InputMatemathic : Module
     private void SetEmptyField()
     {
         inputMatemathic.text = null;
+        inputMatemathic.interactable = true;
     }
 
     public void CheckResult()
     {
-        if (Int32.Parse(inputMatemathic.text) != result) return;
+        if (Int32.Parse(inputMatemathic.text) != result)
+        {
+            inputMatemathic.text = null;
+            return;
+        }
         inputMatemathic.interactable = false;
         base.Activated();
     }
