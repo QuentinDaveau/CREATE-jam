@@ -30,17 +30,16 @@ public class GameDirector : MonoBehaviour
     void Start()
     {
         moduleNamesOrder = new List<string>(){
-            "Simon",
-
             "GreenButton",
             "LeverModule",
             "Matemathic",
             "WindUp",
             "ClickMe",
-            "ShortCut"
+            "ShortCut",
+            "Simon"
         };
 
-        foreach(string moduleName in moduleNamesOrder)
+        foreach (string moduleName in moduleNamesOrder)
         {
             moduleList.Add(GameObject.Find(moduleName).GetComponent<Module>());
         }
@@ -56,7 +55,7 @@ public class GameDirector : MonoBehaviour
     public void JumpButtonClicked()
     {
         Debug.Log("click");
-        if(!gameStarted)
+        if (!gameStarted)
         {
             startText.enabled = false;
             gameOverText.enabled = false;
@@ -102,16 +101,16 @@ public class GameDirector : MonoBehaviour
     {
         float tempRunDuration = 0f;
 
-        for(int i = 0;i < difficulty; i++)
+        for (int i = 0; i < difficulty; i++)
         {
-            if(!(i < moduleList.Count)) break;
+            if (!(i < moduleList.Count)) break;
 
             // Debug.Log(i);
             enabledModuleList.Add(moduleList[i]);
             activatedModuleList.Add(moduleList[i]);
         }
 
-        foreach(Module module in enabledModuleList)
+        foreach (Module module in enabledModuleList)
         {
             // Debug.Log(enabledModuleList.Count);
             module.Enable();
@@ -124,7 +123,7 @@ public class GameDirector : MonoBehaviour
     private void DestroyTable()
     {
         // Debug.Log(enabledModuleList.Count);
-        foreach(Module module in enabledModuleList)
+        foreach (Module module in enabledModuleList)
         {
             // Debug.Log(module);
             module.Disable();

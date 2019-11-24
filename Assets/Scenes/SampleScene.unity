@@ -1392,6 +1392,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -8469494145858465668, guid: 9ae055c05b5b8a14cbd135c9c44a084d,
         type: 3}
+    - target: {fileID: 2920382367965580531, guid: a6ec902a6253bef4b8c600873d7a7c9b,
+        type: 3}
+      propertyPath: execTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2920382366402052472, guid: a6ec902a6253bef4b8c600873d7a7c9b,
         type: 3}
       propertyPath: simon
