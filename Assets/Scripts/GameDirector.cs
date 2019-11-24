@@ -30,6 +30,8 @@ public class GameDirector : MonoBehaviour
     void Start()
     {
         moduleNamesOrder = new List<string>(){
+            "Simon",
+
             "GreenButton",
             "LeverModule",
             "Matemathic",
